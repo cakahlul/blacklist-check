@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS blacklist (
+    nik VARCHAR(50) PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    birth_place VARCHAR(100) NOT NULL,
+    birth_date DATE NOT NULL,
+    description TEXT,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_blacklist_nik ON blacklist(nik); 

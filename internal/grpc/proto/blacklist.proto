@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package blacklist;
+
+option go_package = "blacklist-check/internal/grpc/proto";
+
+service BlacklistService {
+  rpc Check(BlacklistRequest) returns (BlacklistResponse) {}
+}
+
+message BlacklistRequest {
+  string name = 1;
+  string nik = 2;
+  string birth_place = 3;
+  string birth_date = 4;
+}
+
+message Individual {
+  string name = 1;
+  string birth_place = 2;
+  string birth_date = 3;
+  string description = 4;
+}
+
+message BlacklistResponse {
+  bool blacklisted = 1;
+  Individual details = 2;
+  string match_type = 3;
+} 
